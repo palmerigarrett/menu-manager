@@ -1,0 +1,30 @@
+/* Style Sheet for Workshop 2 - manager.html */
+
+body  {
+    text-align: center;
+}
+
+#apps  {
+    list-style-type: none;
+    padding-left: inherit;
+}
+
+#entrees  {
+    list-style-type: none;
+    padding-left: inherit;
+}
+
+#sides  {
+    list-style-type: none;
+    padding-left: inherit;
+}
+
+#desserts  {
+    list-style-type: none;
+    padding-left: inherit;
+}
+
+#drinks  {
+    list-style-type: none;
+    padding-left: inherit;
+}
