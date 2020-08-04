@@ -5,50 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script> 
-            $(document).ready(function(){
-                $("#submitButton").click(function(event){
-                    event.preventDefault();
-                    
-                    const butt = event.target.id;
-                    const newName = $("<li></li>").text(`${butt}`)
-                    console.log("Variable butt: ", butt)
-                    const newItem = $("#menuItem :selected").val()
-                    const itemName = $("#itemName").val()
-                    const price = $("#price").val()
-                    var styled = $('price').css("color", "blue");
-                    // console.log("Price", price)
-                    // console.log("Styled Price", styled)
-                    const descript = $("#description").val()
-                    // console.log("newItem:", newItem)
-                    // console.log("itemName:", itemName)
-
-                    if(newItem == "Appetizer"){
-                        $("#apps").append("<li>"+newItem+"<span>"+" $"+price+"</span>"+"</li>");
-                        $("#apps").append("<li>"+descript+"</li>"+"<br>");
-                    }
-                    if(newItem == "Entree"){
-                        $("#entrees").append("<li>"+newItem+"<span>"+" $"+price+"</span>"+"</li>");
-                        $("#entrees").append("<li>"+descript+"</li>"+"<br>");
-                    }
-                    if(newItem == "Sides"){
-                        $("#sides").append("<li>"+newItem+"<span>"+" $"+price+"</span>"+"</li>");
-                        $("#sides").append("<li>"+descript+"</li>"+"<br>");
-                    }
-                    if(newItem == "Dessert"){
-                        $("#desserts").append("<li>"+newItem+"<span>"+" $"+price+"</span>"+"</li>");
-                        $("#desserts").append("<li>"+descript+"</li>"+"<br>");
-                    }
-                    if(newItem == "Drinks"){
-                        $("#drinks").append("<li>"+newItem+"<span>"+" $"+price+"</span>"+"</li>");
-                        $("#drinks").append("<li>"+descript+"</li>"+"<br>");
-                    }
-                    $("#form")[0].reset();
-                });
-                
-            });
-    </script>
 </head>
     <body>
     <h1>Brick City Burger House</h1>
@@ -80,30 +36,11 @@
             <br>
         </div>
         <div class="container">
-            <div class ="row">
-                <div class="col-sm">
-                    <h3>Apps</h3>
-                    <ul id="apps"></ul>
-                </div>
-                <div class="col-sm">
-                    <h3>Entrees</h3>
-                    <ul id="entrees"></ul>
-                </div>
-                <div class="col-sm">
-                    <h3>Sides</h3>
-                    <ul id="sides"></ul>
-                </div>
-            </div>
-            <div class="row">    
-                <div class="col-sm">
-                    <h3>Desserts</h3>
-                    <ul id="desserts"></ul>
-                </div>
-                <div class="col-sm">
-                    <h3>Drinks</h3>
-                    <ul id="drinks"></ul>
-                </div>
-            </div>
+            <h3>Apps</h3>
+            <h3>Entrees</h3>
+            <h3>Sides</h3>
+            <h3>Desserts</h3>
+            <h3>Drinks</h3>
         </div>
 </body>
 </html>
