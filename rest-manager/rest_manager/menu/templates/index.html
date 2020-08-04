@@ -3,7 +3,6 @@
 <head>
     <title>Manager's Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -19,11 +18,11 @@
                     const itemName = $("#itemName").val()
                     const price = $("#price").val()
                     var styled = $('price').css("color", "blue");
-                    console.log("Price", price)
-                    console.log("Styled Price", styled)
+                    // console.log("Price", price)
+                    // console.log("Styled Price", styled)
                     const descript = $("#description").val()
-                    console.log("newItem:", newItem)
-                    console.log("itemName:", itemName)
+                    // console.log("newItem:", newItem)
+                    // console.log("itemName:", itemName)
 
                     if(newItem == "Appetizer"){
                         $("#apps").append("<li>"+newItem+"<span>"+" $"+price+"</span>"+"</li>");
@@ -72,7 +71,7 @@
             <label for="description">Description: </label>
             <textarea id="description" name="description" rows="4" cols="50" required></textarea>
                 <br><br>
-            <button id="submitButton">Add to Menu</button>
+            <button name="itemAdd" id="submitButton" type="submit">Add to Menu</button>
             <br><br><br>
         </div>
     </form>
