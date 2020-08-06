@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manager's Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+    <body>
+    <h1>Brick City Burger House</h1>
+    <form id="form">
+        <div class="newMenuItem">
+            <label for="menuItem">Menu Item: </label>
+            <select name="course" id="course">
+                    <option value="Appetizer">Appetizer</option>
+                    <option value="Entree">Entree</option>
+                    <option value="Sides">Sides</option>
+                    <option value="Dessert">Dessert</option>
+                    <option value="Drinks">Drinks</option>
+            </select>
+            <br><br>
+            <label for="itemName">Dish Name: </label>
+            <input type="text" id="itemName" name="itemName" required>
+            <label for="price">Price: </label>
+            <input type="text" id="price" name="price" required>
+                <br><br>
+            <label for="description">Description: </label>
+            <textarea id="description" name="description" rows="4" cols="50" required></textarea>
+                <br><br>
+            <button name="itemAdd" id="submitButton" type="submit">Add to Menu</button>
+            <br><br><br>
+        </div>
+    </form>
+        <div>
+            <h2>Below is the current menu :)</h2>
+            <br>
+        </div>
+        <div class="container">
+            <h3>Apps</h3>
+            <h3>Entrees</h3>
+            <h3>Sides</h3>
+            <h3>Desserts</h3>
+            <h3>Drinks</h3>
+        </div>
+</body>
+</html>
