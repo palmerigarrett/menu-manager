@@ -1,46 +1,139 @@
 <!DOCTYPE html>
 <html>
 <head>
+    {% load static %}
     <title>Manager's Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 </head>
     <body>
-    <h1>Brick City Burger House</h1>
-    <form id="form">
-        <div class="newMenuItem">
-            <label for="menuItem">Menu Item: </label>
-            <select name="course" id="course">
-                    <option value="Appetizer">Appetizer</option>
-                    <option value="Entree">Entree</option>
-                    <option value="Sides">Sides</option>
-                    <option value="Dessert">Dessert</option>
-                    <option value="Drinks">Drinks</option>
-            </select>
-            <br><br>
-            <label for="itemName">Dish Name: </label>
-            <input type="text" id="itemName" name="itemName" required>
-            <label for="price">Price: </label>
-            <input type="text" id="price" name="price" required>
-                <br><br>
-            <label for="description">Description: </label>
-            <textarea id="description" name="description" rows="4" cols="50" required></textarea>
-                <br><br>
-            <button name="itemAdd" id="submitButton" type="submit">Add to Menu</button>
-            <br><br><br>
+        <div django-app="restApp">
+            <div class="content">
+                <h1>Brick City Burger House</h1>
+                <form action="" method="post"> <!-- this form will send a post request to our django app -->
+                    {% csrf_token %} <!-- csrf token for basic security -->
+                        <div class="newMenuItem">
+                            <div>
+                                <label for="menuItem">Course: </label>
+                                <select id="course" name="course" required> 
+                                        {% for c in courses %}
+                                            <option class="" value="{{ c.name }}" name="{{ c.name }}">{{ c.name }}</option>
+                                        {% endfor %}
+                                </select>
+                            </div>
+                            <div>
+                                <label for="dishTitle">Dish Name: </label>
+                                <input type="text" id="dishTitle" name="dishTitle" required>
+                                <label for="price">Price: </label>
+                                <input type="text" id="price" name="price" required>
+                                    <br><br>
+                                <label for="description">Description: </label>
+                                <textarea id="description" rows="4" cols="50" name="description" required></textarea>
+                                    <br><br>
+                                <button name="itemAdd" id="submitButton" type="submit">Add to Menu</button>
+                            </div>
+                            <br><br><br>
+                        </div>
+            </form>
+                <div>
+                    <h2>Below is the current menu :)</h2>
+                    <br>
+                </div>
+                <div class="container">
+                    <div class ="row">
+                        <div class="col-sm">
+                            <h3>Apps</h3>
+                            <ul id="apps">
+                                {% for item in apps %}
+                                <label for="{{ item.id }}">
+                                    <div>
+                                        <strong>{{ item.dish_title }}</strong>
+                                        <span>${{ item.output_price }}</span>
+                                    </div>
+                                    <div>
+                                        {{ item.description }}
+                                    </div>
+                                </label>
+                                <br>
+                                {% endfor %}
+                            </ul>
+
+                        </div>
+                        <div class="col-sm">
+                            <h3>Entrees</h3>
+                            <ul id="entrees">
+                                {% for item in entrees %}
+                                <label for="{{ item.id }}">
+                                    <div>
+                                        <strong>{{ item.dish_title }}</strong>
+                                        <span>${{ item.output_price }}</span>
+                                    </div>
+                                    <div>
+                                        {{ item.description }}
+                                    </div>
+                                </label>
+                                <br>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="col-sm">
+                            <h3>Sides</h3>
+                            <ul id="sides">
+                                {% for item in sides %}
+                                <label for="{{ item.id }}">
+                                    <div>
+                                        <strong>{{ item.dish_title }}</strong>
+                                        <span>${{ item.output_price }}</span>
+                                    </div>
+                                    <div>
+                                        {{ item.description }}
+                                    </div>
+                                </label>
+                                <br>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">   
+                        <div class="col-sm">
+                            <h3>Desserts</h3>
+                            <ul id="desserts">
+                                {% for item in desserts %}
+                                <label for="{{ item.id }}">
+                                    <div>
+                                        <strong>{{ item.dish_title }}</strong>
+                                        <span>${{ item.output_price }}</span>
+                                    </div>
+                                    <div>
+                                        {{ item.description }}
+                                    </div>
+                                </label>
+                                <br>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="col-sm">
+                            <h3>Drinks</h3>
+                            <ul id="drinks">
+                                {% for item in drinks %}
+                                <label for="{{ item.id }}">
+                                    <div>
+                                        <strong>{{ item.dish_title }}</strong>
+                                        <span>${{ item.output_price }}</span>
+                                    </div>
+                                    <div>
+                                        {{ item.description }}
+                                    </div>
+                                </label>
+                                <br>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </form>
-        <div>
-            <h2>Below is the current menu :)</h2>
-            <br>
-        </div>
-        <div class="container">
-            <h3>Apps</h3>
-            <h3>Entrees</h3>
-            <h3>Sides</h3>
-            <h3>Desserts</h3>
-            <h3>Drinks</h3>
-        </div>
-</body>
+    </body>
 </html>

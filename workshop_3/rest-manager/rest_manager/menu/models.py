@@ -8,19 +8,24 @@ class Course(models.Model):
        verbose_name = ("Course")
        verbose_name_plural = ("Courses")
 
-    def __str__(self): # _str_ method will specify what to return when you call str() on am object
+    def __str__(self): # _str_ method will specify what to return when you call str() on an object
        return self.name
     
 
 class MenuItem(models.Model): # MenuItem Class inherits models.Model
-    dishTitle = models.CharField(max_length=250) # a varchar
-    price = models.IntegerField(default=0) # an integer field
+    dish_title = models.CharField(max_length=250) # a varchar
+    price = models.FloatField(default=0) # a float field
     description = models.TextField(blank=True) # a text field
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     created = models.DateField(default=timezone.now().strftime("%Y-%m-%d")) # a date
+    output_price = models.CharField(max_length=250) # a varchar
 
     class Meta:
-        ordering = ["dishTitle"] #ordering by the created field
+        ordering = ["dish_title"] #ordering by the created field
 
     def __str__(self):
-       return self.dishTitle #name to be shown when called
+       return self.dish_title #name to be shown when called
+
+    def p_formatter(self):
+        self.output_price = "{:.2f}".format(round(self.price, 2))
+        
